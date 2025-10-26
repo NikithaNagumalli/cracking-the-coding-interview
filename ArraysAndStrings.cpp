@@ -230,7 +230,9 @@ void zeroMatrix(vector<vector<int>>& matrix) {
 bool stringRotation(string x, string y) {
     y.append(y);
     cout << y << endl;
-    return y.find(x) != string::npos;
+    // return y.find(x) != string::npos;
+    size_t index = y.find(x);
+    return index != string::npos && index < sizeof(y) && index + sizeof(x) > sizeof(y);
 }
 
 int main() {
@@ -272,6 +274,6 @@ int main() {
     // }
     // cout << "----" << endl;
 
-    cout << stringRotation("waterbottle", "erbottlewat") << endl;
+    cout << stringRotation("rot", "trotro") << endl;
 }
 
